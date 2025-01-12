@@ -1,0 +1,32 @@
+---
+// src/components/MenuSection.astro
+import MenuItem from "./MenuItem.astro";
+
+export interface MenuSectionProps {
+    title: string;
+    items: {
+        title: string;
+        description: string;
+        price: string;
+        icons: string[];
+    }[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<div class="mb-16">
+    <h2 class="text-4xl font-bold text-gray-800 mb-8">{title}</h2>
+    <div class="space-y-8">
+        {
+            items.map(
+                (item: {
+                    title: string;
+                    description: string;
+                    price: string;
+                    icons: string[];
+                }) => <MenuItem {...item} />,
+            )
+        }
+    </div>
+</div>

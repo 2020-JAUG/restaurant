@@ -1,0 +1,86 @@
+---
+const links = [
+    { href: "/", label: "Inicio" },
+    { href: "/menu", label: "Menú" },
+    { href: "/about", label: "Sobre nosotros" },
+    { href: "/contact", label: "Contacto" },
+];
+---
+
+<nav class="bg-white shadow-md fixed top-0 w-full z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="/" class="text-2xl font-bold text-gray-800">
+                Restaurant name
+            </a>
+
+            <div class="hidden md:flex space-x-6 justify-center">
+                {
+                    links.map((link: { href: string; label: string }) => (
+                        <a href={link.href} class="text-gray-600 font-medium">
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </div>
+
+            <div class="md:hidden">
+                <button
+                    id="menu-button"
+                    class="text-gray-600 focus:outline-none"
+                    aria-expanded="false"
+                >
+                    &#9776;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden flex flex-col items-center bg-white"
+    >
+        {
+            links.map((link) => (
+                <a href={link.href} class="block px-4 py-2 text-gray-600">
+                    {link.label}
+                </a>
+            ))
+        }
+    </div>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuButton: HTMLElement | null =
+            document.getElementById("menu-button");
+        const mobileMenu: HTMLElement | null =
+            document.getElementById("mobile-menu");
+
+        if (!menuButton || !mobileMenu) {
+            console.warn("Menu button or mobile menu not found in the DOM.");
+            return;
+        }
+
+        menuButton.addEventListener("click", (event) => {
+            event.stopPropagation();
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (
+                !mobileMenu.contains(event.target as Node) &&
+                !menuButton.contains(event.target as Node)
+            ) {
+                mobileMenu.classList.add("hidden");
+            }
+        });
+
+        mobileMenu.addEventListener("click", (event) => {
+            if ((event.target as HTMLElement).tagName === "A") {
+                mobileMenu.classList.add("hidden");
+            }
+        });
+    });
+</script>

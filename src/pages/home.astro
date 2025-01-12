@@ -1,0 +1,67 @@
+---
+import "../styles/carousel.css";
+---
+
+<script src="/scripts/carousel.js" defer></script>
+
+<div class="relative w-full h-screen overflow-hidden">
+    <div class="carousel">
+        <div class="list flex">
+            <div
+                class="item"
+                style="background-image: url('/images/amor.jpg');"
+            >
+            </div>
+            <div
+                class="item"
+                style="background-image: url('/images/conil.JPG');"
+            >
+            </div>
+            <div
+                class="item"
+                style="background-image: url('/images/espuma.jpg');"
+            >
+            </div>
+            <div class="item" style="background-image: url('/images/sol.jpg');">
+            </div>
+            <div
+                class="item"
+                style="background-image: url('/images/skate.jpg');"
+            >
+            </div>
+        </div>
+        <div class="arrows gap-4">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
+</div>
+
+<section class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="flex flex-col justify-center">
+            <h2
+                class="text-3xl font-bold text-gray-800 mb-4 text-center md:text-left"
+            >
+                ¡Conócenos!
+            </h2>
+            <p class="text-gray-600 mb-4 text-center md:text-left">
+                Estamos ubicados en el corazón de la ciudad, ofreciendo los
+                mejores platos elaborados con ingredientes frescos y locales.
+            </p>
+            <p class="text-gray-600 mb-4 text-center md:text-left">
+                <strong>Dirección:</strong> Calle Principal #123, Valencia, España.
+            </p>
+            <p class="text-gray-600 mb-4 text-center md:text-left">
+                <strong>Horario:</strong> Lunes a Domingo: 10:00 AM - 10:00 PM.
+            </p>
+        </div>
+        <div class="flex justify-center">
+            <img
+                src="/images/local.JPG"
+                alt="Imagen del restaurante"
+                class="w-full h-auto rounded-lg shadow-lg"
+            />
+        </div>
+    </div>
+</section>

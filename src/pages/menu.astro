@@ -1,0 +1,220 @@
+---
+// src/pages/menu.astro
+import Layout from "../layouts/Layout.astro";
+import MenuSection from "../components/MenuSection.astro";
+
+const menuData = [
+    {
+        title: "Entrantes",
+        items: [
+            {
+                title: "Bruschetta de Tomate",
+                description:
+                    "Pan tostado con tomate fresco, albahaca y un toque de ajo.",
+                price: "$8",
+                icons: ["🥦 Vegano", "🍞 Gluten"],
+            },
+            {
+                title: "Tartar de Salmón",
+                description:
+                    "Salmón fresco picado con aguacate, lima y sésamo.",
+                price: "$12",
+                icons: ["🐟 Pescado", "🥑 Sin gluten"],
+            },
+            {
+                title: "Bravas",
+                description: "Patatas fritas con salsa brava y alioli casero.",
+                price: "$6",
+                icons: ["🌶 Picante", "🍟 Sin gluten"],
+            },
+            {
+                title: "Calamares a la Romana",
+                description: "Calamares fritos con un toque de limón fresco.",
+                price: "$10",
+                icons: ["🐟 Pescado", "🍞 Gluten"],
+            },
+            {
+                title: "Queso Frito",
+                description:
+                    "Cubos de queso empanizado acompañado de mermelada de arándanos.",
+                price: "$7",
+                icons: ["🥛 Lácteos", "🍞 Gluten"],
+            },
+            {
+                title: "Hummus",
+                description:
+                    "Crema de garbanzos con aceite de oliva y pimentón dulce.",
+                price: "$5",
+                icons: ["🥦 Vegano", "🌱 Sin gluten"],
+            },
+        ],
+    },
+    {
+        title: "Ensaladas",
+        items: [
+            {
+                title: "Ensalada Valenciana",
+                description:
+                    "Lechuga, tomate, cebolla, atún, huevo y aceitunas.",
+                price: "$9",
+                icons: ["🍳 Huevo", "🐟 Pescado"],
+            },
+            {
+                title: "Ensalada César",
+                description:
+                    "Lechuga, pollo a la parrilla, queso parmesano y aderezo César.",
+                price: "$11",
+                icons: ["🥛 Lácteos", "🍞 Gluten"],
+            },
+            {
+                title: "Ensalada Tropical",
+                description:
+                    "Lechuga, mango, aguacate, camarones y vinagreta de maracuyá.",
+                price: "$12",
+                icons: ["🍤 Mariscos", "🥑 Sin gluten"],
+            },
+        ],
+    },
+    {
+        title: "Carnes y Pescados",
+        items: [
+            {
+                title: "Entrecot de Ternera",
+                description:
+                    "Corte de ternera a la parrilla con hierbas aromáticas.",
+                price: "$15",
+                icons: ["🥩 Carne roja", "🌱 Sin gluten"],
+            },
+            {
+                title: "Lubina a la Brasa",
+                description:
+                    "Lubina fresca preparada con especias y servida con verduras salteadas.",
+                price: "$18",
+                icons: ["🐟 Pescado", "🥕 Vegano opcional"],
+            },
+        ],
+    },
+    {
+        title: "Postres",
+        items: [
+            {
+                title: "Tarta de Queso",
+                description:
+                    "Tarta casera de queso con base de galleta y cobertura de mermelada.",
+                price: "$7",
+                icons: ["🥛 Lácteos", "🍞 Gluten"],
+            },
+            {
+                title: "Brownie de Chocolate",
+                description:
+                    "Delicioso brownie servido con helado de vainilla.",
+                price: "$6",
+                icons: ["🥛 Lácteos", "🍞 Gluten", "🍫 Cacao"],
+            },
+            {
+                title: "Flan Casero",
+                description:
+                    "Flan de huevo con caramelo al estilo tradicional.",
+                price: "$5",
+                icons: ["🍳 Huevo", "🥛 Lácteos"],
+            },
+        ],
+    },
+    {
+        title: "Bebidas",
+        items: [
+            {
+                title: "Caña",
+                description: "Cerveza rubia o tostada.",
+                price: "$2.50",
+                icons: [],
+            },
+            {
+                title: "Doble",
+                description: "Cerveza rubia o tostada.",
+                price: "$2.50",
+                icons: [],
+            },
+            {
+                title: "Copa de Vino",
+                description:
+                    "Vino tinto, blanco o rosado, de nuestra selección de la casa.",
+                price: "$4.00",
+                icons: [],
+            },
+            {
+                title: "Refrescos",
+                description: "Coca Cola, Sprite, Fanta o agua mineral.",
+                price: "$2.00",
+                icons: [],
+            },
+        ],
+    },
+    {
+        title: "Platos Infantiles",
+        items: [
+            {
+                title: "Mini Hamburguesa",
+                description:
+                    "Hamburguesa pequeña con queso, acompañada de papas fritas.",
+                price: "$6",
+                icons: ["🥩 Carne", "🥛 Lácteos"],
+            },
+            {
+                title: "Fingers de Pollo",
+                description:
+                    "Tiras de pollo empanizadas, servidas con ketchup y papas fritas.",
+                price: "$5",
+                icons: ["🍗 Pollo", "🍞 Gluten"],
+            },
+            {
+                title: "Pasta con Salsa de Tomate",
+                description: "Pasta con una deliciosa salsa de tomate casera.",
+                price: "$5",
+                icons: ["🍅 Vegano", "🍞 Gluten"],
+            },
+        ],
+    },
+    {
+        title: "Extras",
+        items: [
+            {
+                title: "Papas Fritas",
+                description:
+                    "Crocantes y doradas, perfectas para acompañar cualquier plato.",
+                price: "$3",
+                icons: ["🍟 Sin gluten"],
+            },
+            {
+                title: "Pan con Mantequilla",
+                description: "Pan recién horneado servido con mantequilla.",
+                price: "$2",
+                icons: ["🥛 Lácteos", "🍞 Gluten"],
+            },
+            {
+                title: "Verduras Salteadas",
+                description:
+                    "Una mezcla de verduras frescas salteadas con aceite de oliva.",
+                price: "$4",
+                icons: ["🥦 Vegano", "🌱 Sin gluten"],
+            },
+        ],
+    },
+];
+---
+
+<Layout>
+    <section class="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        {menuData.map((section) => <MenuSection {...section} />)}
+    </section>
+
+    <section class="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Observaciones</h2>
+            <p class="text-gray-600">
+                Consulte a nuestro personal por alergias específicas. Los
+                precios incluyen IVA.
+            </p>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,30 @@
+---
+// src/components/MenuItem.astro
+export interface MenuItemProps {
+    title: string;
+    description: string;
+    price: string;
+    icons: string[];
+}
+
+const { title, description, price, icons } = Astro.props;
+---
+
+<div
+    class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center"
+>
+    <div>
+        <h3 class="text-xl font-semibold text-gray-800">{title}</h3>
+        <p class="text-gray-600">{description}</p>
+        <div class="flex space-x-4 mt-2">
+            {
+                icons.map((icon: string) => (
+                    <span class="text-sm text-gray-600 flex items-center">
+                        {icon}
+                    </span>
+                ))
+            }
+        </div>
+    </div>
+    <p class="text-lg font-semibold text-gray-800 mt-4 sm:mt-0">{price}</p>
+</div>
