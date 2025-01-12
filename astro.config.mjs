@@ -6,5 +6,5 @@ export default defineConfig({
     site: 'https://github.com/2020-JAUG.io',
     base: '/restaurant/',
     output: 'static',
-    outDir: 'docs',
+    outDir: 'dist',
 });
