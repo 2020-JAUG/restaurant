@@ -2,22 +2,22 @@
 const links = [
     { href: "/restaurant/", label: "Inicio" },
     { href: "/restaurant/menu", label: "Menú" },
-    { href: "/restaurant/", label: "Sobre nosotros" },
+    { href: "/restaurant/about-us", label: "Sobre nosotros" },
     { href: "/restaurant/", label: "Contacto" },
 ];
 ---
 
-<nav class="bg-white shadow-md fixed top-0 w-full z-50">
+<nav class="bg-primary text-white shadow-md fixed top-0 w-full z-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <a href="/restaurant/" class="text-2xl font-bold text-gray-800">
+            <a href="/restaurant/" class="text-2xl font-bold text-white">
                 Restaurant
             </a>
 
             <div class="hidden md:flex space-x-6 justify-center">
                 {
                     links.map((link: { href: string; label: string }) => (
-                        <a href={link.href} class="text-gray-600 font-medium">
+                        <a href={link.href} class="text-white font-medium">
                             {link.label}
                         </a>
                     ))

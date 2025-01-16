@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <section class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <!-- Encabezado principal -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                Sobre Nosotros
+            </h1>
+            <p class="text-gray-600 text-lg">
+                En nuestro restaurante, cada visita es una invitación a
+                disfrutar, compartir y descubrir. Conoce nuestra historia,
+                nuestros valores y lo que nos inspira día a día a ofrecerte una
+                experiencia inolvidable.
+            </p>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Imagen destacada -->
+            <div>
+                <img
+                    src="/restaurant/images/equipo.webp"
+                    alt="Nuestro equipo"
+                    class="rounded-lg shadow-lg w-full h-auto"
+                />
+            </div>
+            <!-- Descripción y valores -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    Nuestra Historia
+                </h2>
+                <p class="text-gray-600 mb-6">
+                    En el corazón de Valencia, junto a la huerta que nos
+                    inspira, nació nuestro restaurante con una misión clara:
+                    ofrecer un espacio donde cada plato cuente una historia. Nos
+                    enorgullece trabajar con productos locales de alta calidad,
+                    transformándolos en experiencias que celebran la tradición y
+                    la creatividad culinaria.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-green-500">🌿</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">
+                                Ingredientes Frescos
+                            </h3>
+                            <p class="text-gray-600">
+                                Seleccionamos los mejores productos de la huerta
+                                valenciana, para que cada bocado sea auténtico y
+                                especial.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-yellow-500">✨</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">
+                                Ambiente Acogedor
+                            </h3>
+                            <p class="text-gray-600">
+                                Un espacio diseñado para que te sientas como en
+                                casa, ideal para cualquier ocasión especial.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-blue-500">👩‍🍳</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">
+                                Un Equipo Dedicado
+                            </h3>
+                            <p class="text-gray-600">
+                                Nuestro equipo está formado por profesionales
+                                apasionados por la cocina y el servicio.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-red-500">❤️</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">
+                                Pasión por la Comida
+                            </h3>
+                            <p class="text-gray-600">
+                                Cada plato está elaborado con dedicación,
+                                cuidado y el toque de amor que lo hace único.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
