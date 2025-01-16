@@ -12,6 +12,9 @@ export default {
         textPrimary: '#2C2C2C', // Gris oscuro
         textSecondary: '#6C757D', // Gris suave
       },
+      fontFamily: {
+        sans: ['Poppins', 'Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],
