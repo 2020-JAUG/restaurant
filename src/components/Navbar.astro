@@ -10,10 +10,18 @@ const links = [
 <nav class="bg-primary text-white shadow-md fixed top-0 w-full z-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <!-- <a href="/restaurant/" class="flex items-center">
+                <img
+                    src="/restaurant/images/logo.webp"
+                    alt="Restaurant Logo"
+                    class="h-10"
+                />
+            </a> -->
             <a href="/restaurant/" class="text-2xl font-bold text-white">
-                Restaurant
+                Bar El Caminito
             </a>
-
+            <!-- Navigation Links -->
             <div class="hidden md:flex space-x-6 justify-center">
                 {
                     links.map((link: { href: string; label: string }) => (
@@ -24,6 +32,7 @@ const links = [
                 }
             </div>
 
+            <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button
                     id="menu-button"
@@ -36,6 +45,7 @@ const links = [
         </div>
     </div>
 
+    <!-- Mobile Menu -->
     <div
         id="mobile-menu"
         class="hidden md:hidden flex flex-col items-center bg-white"
