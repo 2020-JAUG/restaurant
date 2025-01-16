@@ -13,7 +13,7 @@ export default {
         textSecondary: '#6C757D', // Gris suave
       },
       fontFamily: {
-        sans: ['Poppins', 'Roboto', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
     },
   },
