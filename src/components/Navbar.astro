@@ -25,7 +25,7 @@ const links = [
             <div class="hidden md:flex space-x-6 justify-center">
                 {
                     links.map((link: { href: string; label: string }) => (
-                        <a href={link.href} class="text-white font-medium">
+                        <a href={link.href} class="text-white font-bold">
                             {link.label}
                         </a>
                     ))
@@ -48,11 +48,14 @@ const links = [
     <!-- Mobile Menu -->
     <div
         id="mobile-menu"
-        class="hidden md:hidden flex flex-col items-center bg-white"
+        class="hidden md:hidden flex flex-col items-center bg-white font-sans"
     >
         {
             links.map((link) => (
-                <a href={link.href} class="block px-4 py-2 text-gray-600">
+                <a
+                    href={link.href}
+                    class="block px-4 py-2 text-gray-600 font-sans"
+                >
                     {link.label}
                 </a>
             ))
