@@ -21,10 +21,96 @@
                 >
                     Términos y Condiciones
                 </a>
-                <a href="#" class="text-sm text-white hover:text-gray-200">
+                <button
+                    id="contact-us-btn"
+                    class="text-sm text-white hover:text-gray-200"
+                >
                     Contacta con nosotros
-                </a>
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- Popup -->
+    <div
+        id="contact-popup"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+        <div
+            id="popup-content"
+            class="bg-white p-6 rounded-lg shadow-lg w-80 relative"
+        >
+            <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">
+                ¿Cómo deseas contactar?
+            </h3>
+            <div class="flex flex-col gap-4">
+                <a
+                    href="tel:+123456789"
+                    target="_blank"
+                    id="phone-option"
+                    class="w-full bg-primary text-white py-2 rounded-lg text-center hover:bg-opacity-90"
+                >
+                    Llamada Telefónica
+                </a>
+                <a
+                    href="mailto:contacto@barelcaminito.com"
+                    target="_blank"
+                    id="email-option"
+                    class="w-full bg-secondary text-white py-2 rounded-lg text-center hover:bg-opacity-90"
+                >
+                    Correo Electrónico
+                </a>
+            </div>
+            <button
+                id="close-popup"
+                class="mt-4 text-gray-600 text-sm underline w-full text-center"
+            >
+                Cancelar
+            </button>
+        </div>
+    </div>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contactBtn: HTMLElement | null =
+            document.getElementById("contact-us-btn");
+        const popup: HTMLElement | null =
+            document.getElementById("contact-popup");
+        const popupContent: HTMLElement | null =
+            document.getElementById("popup-content");
+        const closePopup: HTMLElement | null =
+            document.getElementById("close-popup");
+        const phoneOption: HTMLElement | null =
+            document.getElementById("phone-option");
+        const emailOption: HTMLElement | null =
+            document.getElementById("email-option");
+
+        if (!contactBtn || !popup || !popupContent || !closePopup) {
+            console.warn("Menu button or mobile menu not found in the DOM.");
+            return;
+        }
+
+        contactBtn?.addEventListener("click", () => {
+            popup?.classList.remove("hidden");
+        });
+
+        closePopup?.addEventListener("click", () => {
+            popup?.classList.add("hidden");
+        });
+
+        popup?.addEventListener("click", (event) => {
+            if (!popupContent?.contains(event.target as Node)) {
+                popup?.classList.add("hidden");
+            }
+        });
+
+        phoneOption?.addEventListener("click", () => {
+            popup?.classList.add("hidden");
+        });
+
+        emailOption?.addEventListener("click", () => {
+            popup?.classList.add("hidden");
+        });
+    });
+</script>
