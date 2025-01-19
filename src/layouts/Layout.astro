@@ -12,9 +12,10 @@ export const title = "Restaurant";
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{title}</title>
 	</head>
-	<body class="bg-background text-textPrimary">
+	<body class="bg-background text-textPrimary flex flex-col min-h-screen">
 		<Navbar />
 
+		<!-- Contenido principal -->
 		<main class="flex-grow mt-16">
 			<slot />
 		</main>
