@@ -1,5 +1,6 @@
 ---
 import "../styles/carousel.css";
+import Image from "astro/components/Image.astro";
 ---
 
 <script src="/restaurant/scripts/carousel.js" defer></script>
@@ -7,10 +8,15 @@ import "../styles/carousel.css";
 <div class="relative w-full h-screen overflow-hidden">
     <div class="carousel">
         <div class="list flex">
-            <div
-                class="item"
-                style="background-image: url('/restaurant/images/queso-frito.webp');"
-            >
+            <div class="item">
+                <Image
+                    src="/restaurant/images/queso-frito.webp"
+                    alt="Imagen del restaurante"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
+                    class="w-full h-auto rounded-lg shadow-lg"
+                    height="400"
+                    width="600"
+                />
             </div>
             <div
                 class="item"
@@ -72,7 +78,7 @@ import "../styles/carousel.css";
             </p>
         </div>
         <div class="flex justify-center">
-            <img
+            <Image
                 src="/restaurant/images/local.webp"
                 alt="Imagen del restaurante"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
