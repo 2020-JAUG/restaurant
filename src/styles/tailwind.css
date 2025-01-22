@@ -15,7 +15,6 @@ body {
     font-weight: 400;
     src: url('/restaurant/assets/fonts/Poppins-Regular.woff2') format('woff2'),
         url('/restaurant/assets/fonts/Poppins-Regular.woff') format('woff');
-    font-display: swap;
 }
 
 @font-face {
@@ -24,7 +23,6 @@ body {
     font-weight: 700;
     src: url('/restaurant/assets/fonts/Poppins-Bold.woff2') format('woff2'),
         url('/restaurant/assets/fonts/Poppins-Bold.woff') format('woff');
-    font-display: swap;
 }
 
 .bg-primary {
