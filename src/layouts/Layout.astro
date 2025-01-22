@@ -2,7 +2,17 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/tailwind.css";
-export const title = "Restaurant";
+export const title = "Bar el Caminito";
+
+let isPopupOpen = false;
+
+function togglePopup() {
+	isPopupOpen = !isPopupOpen;
+	const popup = document.getElementById("contact-popup");
+	if (popup) {
+		popup.classList.toggle("hidden", !isPopupOpen);
+	}
+}
 ---
 
 <!doctype html>
@@ -13,13 +23,107 @@ export const title = "Restaurant";
 		<title>{title}</title>
 	</head>
 	<body class="bg-background text-textPrimary flex flex-col min-h-screen">
-		<Navbar />
-
-		<!-- Contenido principal -->
+		<Navbar onContactClick={togglePopup} />
 		<main class="flex-grow mt-16">
 			<slot />
 		</main>
-
-		<Footer />
+		<Footer onContactClick={togglePopup} />
+		<!-- Modal -->
+		<div
+			id="contact-popup"
+			class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+		>
+			<div
+				id="popup-content"
+				class="bg-white p-6 rounded-lg shadow-lg w-80 relative"
+			>
+				<h3 class="text-lg font-bold text-gray-800 mb-4 text-center">
+					¿Cómo deseas contactar?
+				</h3>
+				<div class="flex flex-col gap-4">
+					<a
+						href="tel:+123456789"
+						target="_blank"
+						class="w-full bg-primary text-white py-2 rounded-lg text-center hover:bg-opacity-90"
+						data-option="contact"
+					>
+						Llamada Telefónica
+					</a>
+					<a
+						href="mailto:contacto@barelcaminito.com"
+						target="_blank"
+						class="w-full bg-secondary text-white py-2 rounded-lg text-center hover:bg-opacity-90"
+						data-option="contact"
+					>
+						Correo Electrónico
+					</a>
+				</div>
+				<button
+					id="close-popup"
+					class="mt-4 text-gray-600 text-sm underline w-full text-center"
+					data-option="close"
+				>
+					Cancelar
+				</button>
+			</div>
+		</div>
 	</body>
 </html>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const popup = document.getElementById("contact-popup");
+		const popupContent = document.getElementById("popup-content");
+		const contactBtns = document.querySelectorAll("[data-contact-btn]");
+		const closePopupBtn = document.getElementById("close-popup");
+
+		// Función para alternar la visibilidad del popup
+		function togglePopup() {
+			if (popup) {
+				popup.classList.toggle("hidden");
+			}
+			const mobileMenu = document.getElementById("mobile-menu");
+			if (mobileMenu) {
+				mobileMenu.classList.add("hidden");
+			}
+		}
+
+		// Manejar clics en opciones del popup
+		function handleOptionClick(event: Event) {
+			togglePopup(); // Cierra el popup
+			// Permitir navegación en enlaces
+			const target = event.target as HTMLElement;
+			if (target.tagName === "A") {
+				return true;
+			}
+			event.preventDefault(); // Previene acción adicional en botones
+		}
+
+		// Asociar eventos a los botones de contacto
+		contactBtns.forEach((btn) => {
+			btn.addEventListener("click", togglePopup);
+		});
+
+		// Cerrar popup si el usuario hace clic fuera del contenido
+		if (popup) {
+			popup.addEventListener("click", (event) => {
+				if (
+					popupContent &&
+					!popupContent.contains(event.target as Node)
+				) {
+					togglePopup();
+				}
+			});
+		}
+
+		if (closePopupBtn) {
+			closePopupBtn.addEventListener("click", handleOptionClick);
+		}
+		const contactOptions = document.querySelectorAll(
+			"[data-option='contact']",
+		);
+		contactOptions.forEach((option) => {
+			option.addEventListener("click", handleOptionClick);
+		});
+	});
+</script>
