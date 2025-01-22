@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import "../styles/tailwind.css";
 export const title = "Bar el Caminito";
 
 let isPopupOpen = false;
@@ -20,6 +21,26 @@ function togglePopup() {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{title}</title>
+		<meta
+			name="description"
+			content="Bar el Caminito - Disfruta de una experiencia culinaria única en el corazón de Valencia."
+		/>
+		<meta
+			name="keywords"
+			content="restaurante, Valencia, comida, experiencia culinaria"
+		/>
+		<meta name="author" content="Bar el Caminito" />
+		<meta property="og:title" content="Bar el Caminito" />
+		<meta
+			property="og:description"
+			content="Disfruta de una experiencia culinaria única en el corazón de Valencia."
+		/>
+		<meta property="og:image" content="/restaurant/images/equipo.webp" />
+		<meta
+			property="og:url"
+			content="https://2020-jaug.github.io/restaurant"
+		/>
+		<meta property="og:type" content="website" />
 		<link
 			rel="stylesheet"
 			href="/restaurant/styles/tailwind.css"
