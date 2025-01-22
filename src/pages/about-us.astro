@@ -3,6 +3,29 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+    <head>
+        <title>Sobre Nosotros | Bar El Caminito</title>
+        <meta
+            name="description"
+            content="Conoce la historia, valores y misión de Bar El Caminito. Descubre cómo transformamos productos locales de alta calidad en experiencias culinarias inolvidables en el corazón de Valencia."
+        />
+        <meta
+            name="keywords"
+            content="restaurante, Valencia, historia, valores, productos locales, experiencia culinaria"
+        />
+        <meta name="author" content="Bar El Caminito" />
+        <meta property="og:title" content="Sobre Nosotros | Bar El Caminito" />
+        <meta
+            property="og:description"
+            content="Conoce la historia, valores y misión de Bar El Caminito. Descubre cómo transformamos productos locales de alta calidad en experiencias culinarias inolvidables en el corazón de Valencia."
+        />
+        <meta property="og:image" content="/restaurant/images/equipo.webp" />
+        <meta
+            property="og:url"
+            content="https://2020-jaug.github.io/restaurant/about-us"
+        />
+        <meta property="og:type" content="website" />
+    </head>
     <section class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <!-- Encabezado principal -->
         <div class="text-center mb-12">
@@ -25,6 +48,7 @@ import Layout from "../layouts/Layout.astro";
                     src="/restaurant/images/equipo.webp"
                     alt="Nuestro equipo"
                     class="rounded-lg shadow-lg w-full h-auto"
+                    loading="lazy"
                 />
             </div>
             <!-- Descripción y valores -->

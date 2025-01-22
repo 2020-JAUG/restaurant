@@ -13,7 +13,10 @@ const links = [
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
-            <a href="/restaurant/" class="text-2xl font-bold text-white">
+            <a
+                href="/restaurant/"
+                class="text-2xl font-bold text-white hover:text-secondary"
+            >
                 Bar El Caminito
             </a>
             <!-- Navigation Links -->
@@ -23,13 +26,16 @@ const links = [
                         link.isButton ? (
                             <button
                                 data-contact-btn
-                                class="text-white font-bold"
+                                class="text-white font-bold hover:text-secondary"
                                 onclick={onContactClick}
                             >
                                 {link.label}
                             </button>
                         ) : (
-                            <a href={link.href} class="text-white font-bold">
+                            <a
+                                href={link.href}
+                                class="text-white font-bold hover:text-secondary"
+                            >
                                 {link.label}
                             </a>
                         ),
@@ -53,56 +59,28 @@ const links = [
     <!-- Mobile Menu -->
     <div
         id="mobile-menu"
-        class="hidden md:hidden flex flex-col items-center bg-white"
+        class="hidden md:hidden flex flex-col items-center bg-white w-full"
     >
         {
             links.map((link) =>
                 link.isButton ? (
                     <button
                         data-contact-btn
-                        class="block px-4 py-2 text-gray-600"
+                        class="block px-4 py-2 text-gray-600 hover:text-secondary"
                         onclick={onContactClick}
                     >
                         {link.label}
                     </button>
                 ) : (
-                    <a href={link.href} class="block px-4 py-2 text-gray-600">
+                    <a
+                        href={link.href}
+                        class="block px-4 py-2 text-gray-600 hover:text-secondary"
+                    >
                         {link.label}
                     </a>
                 ),
             )
         }
     </div>
+    <script src="/restaurant/scripts/mobile-button.js" defer></script>
 </nav>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuButton = document.getElementById("menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        if (!menuButton || !mobileMenu) {
-            console.warn("Menu button or mobile menu not found in the DOM.");
-            return;
-        }
-
-        menuButton.addEventListener("click", (event) => {
-            event.stopPropagation();
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        document.addEventListener("click", (event) => {
-            if (
-                !mobileMenu.contains(event.target as Node) &&
-                !menuButton.contains(event.target as Node)
-            ) {
-                mobileMenu.classList.add("hidden");
-            }
-        });
-
-        mobileMenu.addEventListener("click", (event) => {
-            if ((event.target as HTMLElement).tagName === "A") {
-                mobileMenu.classList.add("hidden");
-            }
-        });
-    });
-</script>
