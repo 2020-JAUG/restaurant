@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    @apply bg-background text-textPrimary;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/restaurant/assets/fonts/Poppins-Regular.woff2') format('woff2'),
+        url('/restaurant/assets/fonts/Poppins-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/restaurant/assets/fonts/Poppins-Bold.woff2') format('woff2'),
+        url('/restaurant/assets/fonts/Poppins-Bold.woff') format('woff');
+}
+
+.bg-primary {
+    background-color: #1A374D;
+    /* Azul oscuro */
+}
+
+.text-primary {
+    color: #1A374D;
+}
+
+.bg-secondary {
+    background-color: #A4D0A4;
+    /* Verde menta */
+}
+
+.text-secondary {
+    color: #A4D0A4;
+}
